@@ -1,0 +1,41 @@
+1.  i.   List: A sequence of items that are not indexable by default.
+    ii.  Stack: A linear data structure in which operations are perfomred in LIFO (Last In First Out) order.
+    iii. Queue: A linear data strucutre in which operations are perfomred in FIFO (First In First Out) order.
+    iv.  Dictionary: A set of key-value pairs in which all keys are unique.
+2.  The binary search will take log2(n) comparisons at most as the range of elements being compared gets halved everytime a comparison is made.
+3.  In the situation where the last item of the array is the one you are searching for, it would take n comparisons to find which would be the longest amount of time.
+4.  Linear search would be preferable to binary search when searching through a data structure with objects that can't be sorted and don't have indexes. Additionally, linear search would be preferable when searching through a data structure with very few elements as the time difference would be negligible.
+5.  [*84*,37,93,82,98,27,63,73,93,27,75,55,45,8]
+    [*37*,8,82,45,27,63,73,55,27,75]84[*93*,98,93]
+    [*8*,27,27]37[*45*,63,73,55,82,75]84,93,93,98
+    8,27,27,37,45[*63*,73,55,82,75]84,93,93,98
+    8,27,27,37,45,55,63,73[*82*,75]84,93,93,98
+    8,27,27,37,45,55,63,73,75,82,84,93,93,98
+6.  ["3"]->["24"]->["06"]->NULL
+7.  [13, [28, [24, [3, None]]]] 
+8.  In the first output, s is being assigned the pointer called buffer. So when s is modified, so is buffer. In the second output, a new memory location is allocated and s is pointed at it. Then strcpy() assigns the string value of buffer to s, not the location.
+9.  
+	0:NULL
+	1:NULL
+	2:NULL
+	3:["Bob",38]->["Cos",86]
+	4:["Vera",99]->["Nash",11]->["Kate",28]->["Jaga",24]
+	5:["Jesse",78]
+	6:NULL
+10. 
+int find( char *key, int *p_ans )
+{
+	rV = 0;
+	entry *p, *q;
+	int h = hash( key );
+	for( p=table[h]; p!=NULL; p=q )
+	{
+		q = p->next;
+		if( p->key == key)
+		{
+			p_ans = p->value;
+			rV = 1;
+		}		
+	}
+	return rV;
+}   

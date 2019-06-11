@@ -1,0 +1,10 @@
+1.  i.   Users should see and be able to access only that which is needed.
+    ii.  Write small functions that don't overlap and carry out a singular task.
+    iii. Don't use tricks or shortcuts and mislead the user about what is actually going on under the hood especially when it modifies input data in an unexpected way. 
+    iv.  Consistency will reduce the amount of confusion for users when they can reasonably expect certain behaviors.
+2.  Fixed sizes for lines and fields. Doing things behind the users' backs like unquote. Also there a few functions that do several things.
+3.  There are more functions that each accomplish one thing that are used in larger functions like csvgetline and main.
+4.  There is no encapsulation and multiple files acan't be parsed concurrently.
+5.  Yes, concurrent processing is accomplished through having a class and being able to create as many instances that you want.
+6.  Yes, as far as I can tell it seems to adhere to all 4 guidelines and supports concurrent processing.
+7. See edited csv.c 

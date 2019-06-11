@@ -1,0 +1,49 @@
+1-1.  TRUE and FALSE should be swapped as TRUE is traditionally 1, etc. The variable ch is local so it is good that it is short. The variable not-eof is a bit too long and the logic of declaring a negative or "not" variable is a bit confusing. I would instead name the variable eof and assign it the value TRUE.
+1-2.  
+int isSmaller(char *s, char *t) {
+	return (strcmp(s, t) <1)
+}
+1-3.  I read the code aloud.
+1-4. 
+if( c != 'y' && c != 'Y' )
+	return;
+if (length > BUFSIZE) {
+	length = BUFSIZE;
+}
+flag = !flag;
+isQuote = (*line == '"');
+bit = (val & 1);
+1-5.  Part of the expression modifies variables that another part is using and may have unexpected behavior if evaluated in an unexpected order.
+1-6. 
+1 1
+1 2
+1 3
+2 1
+2 2
+2 3
+3 3
+1-7.  
+if(istty(stdin)) ;
+else if (istty(stdout)) ;
+else if (istty(stderr)) ;
+else return(0);
+1-8.
+for ( i=0; i<total; i++){
+	if(this.getName(count) == nametable.userName()) {
+		return (true);
+	}
+}
+1-9.
+Arguments must be parenthesized.
+Macro body must be parenthseized.
+Ternary is not necessary.
+1-10.  
+#define FT2METER 0.3048
+#define METER2FT (1.0 / FT2METER)
+#define MI2FT 5280.0
+#define MI2KM (MI2FT * FT2METER * 1000.0)
+#define SQMI2SQKM (MI2KM * MI2KM)
+1-11.  
+Function does not return anything.
+Tests for odd numbers of is n is bigger than MAX.
+I don't think you need a comment to explain when things are being incremented.

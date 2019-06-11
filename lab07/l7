@@ -1,0 +1,41 @@
+1.  Add() adds a prefix to the statetab, addSuffix adds a suffix to a prefix.
+2.  Lookup searches the statetab for a prefix supplied as an argument. It returns the pointer to the prefix if found and NULL if not. The function can be called with the option to create the prefix if not found. 
+3.  a. It's - 3
+    b. a    - 3
+    c. new  - 3
+    d. dawn - 2
+4.  You are only storing words once to heap memory.
+5.  You need to add extra code for managing and freeing memory. Multiple references are made to the same memory locations which could create dangling pointers. 
+6. 
+void clean_table()
+{
+        State *p, *q = NULL;
+	Suffix *s = NULL;
+        int i;
+
+        for( i=0; i<NHASH; ++i )
+        {
+                for( p=statetab[i]; p!=NULL; p=q )
+                {
+                        q = p->next;
+			for( s=p->suf; s!=NULL; s=t )
+			{
+				t = s->next
+				free( s );
+			}
+                        free( p );
+                }
+        }
+} 
+7.  No. I don't really know what I'm doing.
+8.  Keep track of the references for each string and then free them all at once so as not to leave dangling ppointers.
+9.  Stored in a deque. Deques are easier for "sliding" with pop_front() and push_back() unlike vecotrs which are only good for adding elements to the end.
+10. The dictionary is a map with Prefix deques as keys and vectors of strings (Suffixes) as values.
+11. Suffixes are stored as vectors of strings as values inside the map.
+12. Less code as C implementation. Don't have to manage memory.
+13. Much slower than C implementation.
+14. Prefixes are stored as the keys in the statetable dictionary.
+15. A Python dictionary.
+16. Suffixes are stored as lists of strings as the values of key-value pairs in the statetable dictionary.
+17. It is faster than the C++ implementation and has slightly fewer lines. The built-in dictionary data strucutre that comes with Python is also a perfect data structure for this algorithm and doesn't require building data structures from scratch.
+18. Not as fast as C. 

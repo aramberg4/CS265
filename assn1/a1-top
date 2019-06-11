@@ -1,0 +1,116 @@
+#!/bin/bash
+#File:     a1-top
+#Purpose:  Recurses through the directory provided as an arg or the current directory if none is provided
+#	   and generates dir.xml files for each child directory.
+#Author:   Austin Ramberg
+#Date:     May 14, 2019
+
+shopt -s globstar
+
+#if a directory is not supplied, use pwd
+if [ -z $1 ]; then
+	directory=$(pwd)
+else
+	directory=$1
+fi
+
+#recurse over directory tree, including top-level dir
+for i in "$directory" "$directory"/* "$directory"/**/*
+do
+	if [[ -d $i ]]; then
+		printf "Generating dir.xml for: $i"
+		printf "\n"
+		dirArray=($(ls $i))
+		readMePath="$i/README"
+		indexArray=()
+		reqArray=()
+		#if the dir has a README, parse it and make 2 arrays for the index and required files
+		if [[ -f $readMePath ]]; then
+			readarray -t lines < $readMePath
+			for line in "${lines[@]}"
+			do
+				IFS=':' read -r -a outArray <<< "$line"
+				if [[ "${outArray[0]}" == "index" ]]
+				then
+					IFS=':' read -r -a indexArray <<< "$line"
+				fi
+				if [[ "${outArray[0]}" == "required" ]]
+				then
+					IFS=':' read -r -a reqArray <<< "$line"
+				fi
+			done
+		fi
+		#compare directory files against index and required files
+		#Those not found in either will be put in other.
+		tempArray=()
+		otherArray=()
+
+		#dirArray - indexArray
+		for item1 in "${dirArray[@]}"; do 
+		    for item2 in "${indexArray[@]}"; do
+			    [[ $item1 == "$item2" ]] && continue 2
+		    done
+		    tempArray+=( "$item1" )
+		done
+
+		#(dirArray - indexArray) - reqArray
+		for item1 in "${tempArray[@]}"; do 
+		    for item2 in "${reqArray[@]}"; do
+			    [[ $item1 == "$item2" ]] && continue 2
+		    done
+		    #do not include dir.xml in listing
+		    if [[ $item1 != "dir.xml" ]]; then
+		    	otherArray+=( "$item1" )
+		    fi
+		done
+		
+		#construct xml file
+		xmlFile="$i/dir.xml"
+		touch $xmlFile
+		printf "<?xml version=\"1.0\" encoding=\"ISO-8559-1\"?>\n" > $xmlFile
+		printf "<direntry>\n" >> $xmlFile
+		#index files
+		if [[ ${#indexArray[@]} > 0 ]]; then
+			printf "	<index>\n" >> $xmlFile
+			for idx in "${indexArray[@]:1}";do
+				type="file"
+				if [ -d "$i/$idx" ] 
+				then
+					type="dir"
+				fi
+				printf "		<$type>$idx</$type>\n" >> $xmlFile
+			done
+			printf "	</index>\n" >> $xmlFile
+		fi
+		#required files
+		if [[ ${#reqArray[@]} > 0 ]]; then
+			printf "	<required>\n" >> $xmlFile
+			for req in "${reqArray[@]:1}";do
+				type="file"
+				if [ -d "$i/$idx" ] 
+				then
+					type="dir"
+				fi
+				printf "		<$type>$req</$type>\n" >> $xmlFile
+			done
+			printf "	</required>\n" >> $xmlFile
+		fi
+		#other files
+		if [[ ${#otherArray[@]} > 0 ]]; then
+			printf "	<other>\n" >> $xmlFile
+			for oth in "${otherArray[@]}";do
+				type="file"
+				if [ -d "$i/$oth" ] 
+				then
+					type="dir"
+				fi
+				printf "		<$type>$oth</$type>\n" >> $xmlFile
+			done
+			printf "	</other>\n" >> $xmlFile
+		fi
+		printf "</direntry>\n" >> $xmlFile
+
+	fi
+done
+printf "Complete.\n"
+exit 0

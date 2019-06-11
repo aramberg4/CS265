@@ -1,0 +1,18 @@
+1. Complete.
+2. - funny has rw permissions for user, read for group, and read for world.
+   - hello.bash has rwxr for user, xr for group, and x for world.
+3. Read and write to user, read to group, read to world.
+4. rwxr for user, xr for group, x for world.
+5. Yes.
+6. Yes.
+7. No.
+8. - chmod 700
+   - chmod 500
+9. Vim told me: "E45: 'readonly' option is set (add ! to override)"
+*Please note that I already had a file named "index.html" in my public_html directoy from a previous class. I did not want to overwrite it so I named the file for this class "index265.html". I was still able to navigate to it from a web browser.
+10. Output:
+	- All files were listed
+	- Files that began with a were listed
+	- The annoy file was listed
+	- Nothing was listed because there were no files with a single wildcard character after annoy
+11. Vim created two files named "a" and "space".

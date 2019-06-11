@@ -1,0 +1,11 @@
+1.  egrep 'the' bright_side_of_life
+2.  egrep '\<the\>' bright_side_of_life
+3.  egrep '\<Just\>' bright_side_of_life
+4.  egrep '\<[Jj]ust\>' bright_side_of_life
+5.  egrep '^\<[Jj]ust\>' bright_side_of_life
+6.  egrep '\<[mb]ad\>' bright_side_of_life
+7.  egrep '\<[d|br]eath\>' bright_side_of_life
+8.  egrep 'you.$' bright_side_of_life
+9.  egrep '^[[:blank:]]' bright_side_of_life
+10. egrep '^$' bright_side_of_life
+11. egrep '^\s*$' bright_side_of_life | wc -l --> 13 

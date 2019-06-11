@@ -1,0 +1,63 @@
+1. Output:
+./afr38-CS265-sp19/lab02/lab2
+./afr38-CS265-sp19/lab02/numbers
+./afr38-CS265-sp19/.git/index
+./afr38-CS265-sp19/.git/objects/63/0309053d64c145350b7a124d739033a02cf642
+./afr38-CS265-sp19/.git/objects/ca/24a6d50f5da054f9a9aca5216721675de5dd75
+./afr38-CS265-sp19/.git/objects/fe/0339f04848742aea493564bf9281e746caa665
+./afr38-CS265-sp19/.git/objects/aa/40cb23240e3d5ee667c7f85003a0ebfd8ebb4f
+./afr38-CS265-sp19/.git/objects/0f/3749b99acf58d8e5b9bc8fafd9c49b3df371eb
+./afr38-CS265-sp19/.git/objects/e9/e28401584bf443994dacce074f4800b7bf94ee
+./afr38-CS265-sp19/.git/objects/40/a9869b2f007083f6593ed0619d59b7c0d9d501
+./afr38-CS265-sp19/.git/COMMIT_EDITMSG
+./afr38-CS265-sp19/.git/logs/HEAD
+./afr38-CS265-sp19/.git/logs/refs/heads/master
+./afr38-CS265-sp19/.git/refs/heads/master
+./tmp/gotMe.bash
+./lab-git/hello.txt
+./lab-git/.git/HEAD
+./lab-git/.git/description
+./lab-git/.git/index
+./lab-git/.git/objects/1a/d450a1706a0a9cf1b20d1b27cedfee982e1908
+./lab-git/.git/objects/bc/225ea23f53f06c0c5bd3ba2be85c2120d68417
+./lab-git/.git/objects/7e/a57dae0e17fbdfabcfbd5ba2fd5dcfa8234f3c
+./lab-git/.git/objects/7f/6062b9263af8aa732252cd2b6bb3f471e1599c
+./lab-git/.git/objects/e9/c608e280506d8a0f62a57de1bb26ced78b2b9f
+./lab-git/.git/objects/8a/b686eafeb1f44702738c8b0f24f2567c36da6d
+./lab-git/.git/hooks/pre-commit.sample
+./lab-git/.git/hooks/fsmonitor-watchman.sample
+./lab-git/.git/hooks/commit-msg.sample
+./lab-git/.git/hooks/pre-rebase.sample
+./lab-git/.git/hooks/pre-receive.sample
+./lab-git/.git/hooks/prepare-commit-msg.sample
+./lab-git/.git/hooks/update.sample
+./lab-git/.git/hooks/pre-push.sample
+./lab-git/.git/hooks/pre-applypatch.sample
+./lab-git/.git/hooks/post-update.sample
+./lab-git/.git/hooks/applypatch-msg.sample
+./lab-git/.git/COMMIT_EDITMSG
+./lab-git/.git/logs/HEAD
+./lab-git/.git/logs/refs/heads/master
+./lab-git/.git/config
+./lab-git/.git/info/exclude
+./lab-git/.git/refs/heads/master
+2.  find -name *.bash
+3.  97  499 2960 breadIsDangerous.txt
+4.  ls -1 | wc -l
+5.  grep 'bread' breadIsDangerous.txt
+6.  grep 'the' breadIsDangerous.txt | wc -l
+7.  ispell created a backup file: spellExample.bak
+8.  diff outputs the lines in the two files where there are differences
+9.  Nothing - the files are identical
+10. The output was not what I was expecting. I expected the numbers to be sorted in ascending order. It was ascending but then ended with 6 and 9 out of order.
+11. The output was what I was expecting last time. All numbers in ascending order.
+12. The numbers were listed in descending order.
+13. The files are listed by descending file size.
+14. du -s * | sort -nr | head -n8
+15. -0: standard exit code/ success
+    -1: catchall for general errors
+    -2: Misuses of shell builtins
+16.1 1ad450a1706a0a9cf1b20d1b27cedfee982e1908  
+16.2 git reset removes all pending changes from the index. On the other hand, git reset --hard removes all ppending changes from the index and additionally returns the directory to the last committed state. 
+16.3 git checkout dabc8d2 -- marlin
+16.4 See 16.2

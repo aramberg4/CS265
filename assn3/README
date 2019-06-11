@@ -1,0 +1,6 @@
+In order to use the backspace key when interacting with menus from inside the script I needed to run the following from the terminal:
+stty erase ^H
+
+Please ignore if you are aware of this of have already done this
+
+Cheers!

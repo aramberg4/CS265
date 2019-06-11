@@ -1,0 +1,18 @@
+1.  It generated a file called 'core'
+2.  __strcmp_sse2 ()
+3.  c. done
+    e.  2 3 + =
+	= 5
+	2 3 * =
+	= 6
+	2 3 + 5 * =
+	= 25
+	2 3 * 5 + =
+	= 11
+	8 3 - 2 - =
+	= 7 *wrong
+	75 5 / 3 / =
+	= 5
+     f. Read the stacktrace. Assert that N is less than or equal to 10,000.
+4.  The compiler can't catch this because qsort was looking for a valid comparison function to be passed, which it was, just not the comparison function we wanted to use for strings.
+5.  The comparison function expects strings but is passed integers.
